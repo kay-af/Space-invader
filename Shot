@@ -1,0 +1,64 @@
+import javafx.scene.paint.Color;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.IntStream;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Application;
+import javafx.scene.Cursor;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
+
+public class Shot  {
+	
+	public boolean toRemove;
+	private GraphicsContext gc;
+
+	int posX, posY, speed = 10;
+
+	private int score;
+
+	//private Object gc1;
+	static final int size = 6;
+		
+	public Shot(int posX, int posY) {
+		this.posX = posX;
+		this.posY = posY;
+	}
+
+	public void update() {
+		posY-=speed;
+	}
+	
+
+	public void draw() {
+		gc.setFill(Color.RED);
+		if (score >=50 && score<=70 || score>=120) {
+			gc.setFill(Color.YELLOWGREEN);
+			speed = 50;
+			gc.fillRect(posX-5, posY-10, size+10, size+30);
+		} else {
+			gc.fillOval(posX, posY, size, size);
+		}
+	}
+	
+	public boolean colide(Rocket Rocket) {
+		int distance = distance(this.posX + size / 2, this.posY + size / 2, 
+				Rocket.posX + Rocket.size / 2, Rocket.posY + Rocket.size / 2);
+		return distance  < Rocket.size / 2 + size / 2;
+	} 
+	
+	
+}
