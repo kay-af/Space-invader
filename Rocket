@@ -65,7 +65,7 @@ public class Rocket  {
 		}
 	
 		public boolean colide(Rocket other) {
-			int d = distance(this.posX + size / 2, this.posY + size /2, 
+			int d = Gamesetup.distance(this.posX + size / 2, this.posY + size /2, 
 							other.posX + other.size / 2, other.posY + other.size / 2);
 			return d < other.size / 2 + this.size / 2 ;
 		}
