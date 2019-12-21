@@ -169,7 +169,7 @@ import javafx.util.Duration;
 		
 		return new Bombs(50 + RAND.nextInt(WIDTH-100),0,PLAYER_SIZE,BOMBS_IMG[RAND.nextInt(BOMBS_IMG.length)]);
 			 }	
-		int distance(int x1,int y1,int x2,int y2){
+		public static int distance(int x1,int y1,int x2,int y2){
 			return(int)Math.sqrt(Math.pow((x1 - x2),2)+ Math.pow((y1-y2),2));
 		
 			 } 
